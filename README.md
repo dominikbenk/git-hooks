@@ -21,3 +21,10 @@ Group project for Version control with Git (JEM224)
 
 ### Authors
 Nelli Kalashyan, Jakub Černý, Dominik Benk
+
+#### What are git hooks and why is it good to use them?
+Git hooks are a handy tool that can boost our efficiency or make our collaboration with other colleagues a bit easier. They are basically executable scripts (those can be shell, Python or other scripts) located in *.git/hooks* folder that are triggered by classical git commands and executed in order to affect them the way we want. 
+
+
+
+
