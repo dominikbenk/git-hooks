@@ -10,7 +10,7 @@ https://github.com/aitemr/awesome-git-hooks
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 
 ## Distributing the work
-*feel free to add new subtopics / assing your name to them*
+*feel free to add new subtopics / assign your name to them*
 
 
 - What are the git hooks?
