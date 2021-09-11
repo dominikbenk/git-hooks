@@ -33,13 +33,6 @@ To let Git know, where you want him to look for the hook scripts, you can simply
 ```sh
 git config core.hooksPath custom-hooks
 ```
-
-To set it up automatically, we could also add *Makefile* with a path configuration.
-```sh
-init:
-  git config core.hooksPath custom-hooks
-```
-
 ## Setting up Git Hooks
 ### Sample Hooks
 Whenever you initialize a Git repository, you are provided with some default set of templates. These are copied from
