@@ -23,9 +23,9 @@ Group project for Version control with Git (JEM224)
 Nelli Kalashyan, Jakub Černý, Dominik Benk
 
 ## What are Git Hooks and why is it good to use them?
-Git hooks are a handy tool that can boost our efficiency or make our collaboration with other colleagues a bit easier. They are basically executable scripts located in *.git/hooks* folder that are triggered by classical git commands which they are connected to. They can affect the commands arbitrarily and the scripts themselves can be shell, Python or anything else, which is very practical since everyone can use his or her favourite programming language.
+Git hooks are a handy tool that can boost our efficiency and make our collaboration with other colleagues a bit easier. They are basically executable scripts that are triggered by classical git commands which they are connected to. They are located in *.git/hooks* folder in every local repository and they can affect the Git commands arbitrarily. The scripts themselves can be shell, Python or anything else, which is very practical since everyone can use his or her favourite programming language.
 
-As mentioned above, the main goal is to make things easier, and therefore the hooks can be used e.g. for custom specifications of a team of developers (or possibly a single developer handling a lot of work) to secure proper workflow, format of commit messages and similar things. More information about how to set up the hooks, how to share them with a team of collaborators or what are their specific applications can be found in next sections.
+As mentioned above, the main goal is to make things easier and therefore the hooks can be used e.g. for custom specifications of a team of developers (or possibly a single developer handling a lot of work) to secure proper workflow, format of commit messages and similar things. More information about how to set up the hooks, how to share them with a team of collaborators or what are their specific applications can be found in next sections.
 
 ## Sharing Git Hooks with a Team
 Since Git hooks are by default part of the .git folder, they are ignored and can't be added to staging index.
