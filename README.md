@@ -69,8 +69,13 @@ chmod +x pre-push
 ```
 And now, you're ready to push!
 
+
 ## Application
 - applypatch-msg
+This hook is called with the git-am[1] command. It takes a single parameter - the name of the file in which the log message of the proposed commit is stored. Exiting with a non-zero status causes git-am to terminate before applying the fix.
+Hook is enabled to edit the message file in place and can be used to normalize the message into some standard project format. It can as well be used to uncommit after the message file has been checked.
+By default, the applypatch-msg hook, if enabled, starts the commit-msg hook if the latter is enabled.
+
 - pre-applypatch
 - post-applypatch
 - pre-commit
