@@ -86,12 +86,26 @@ This hook is mainly for notification and cannot affect the result of git-am.
 
 - pre-commit
 
+This is performed before a commit is created.
+
+1. The user writes git commit -v in the terminal;
+2. git tries to do a pre-commit hook locally on the developer's machine;
+3. If the hook fails, it will abort the commit operation;
+4. If the hook completes without errors, the commit operation continues and a text editor opens to enter the message.
 
 - pre-merge-commit
+
+This hook is called by git-merge and can be accessed using the --no-verify option. It takes no parameters and is called after a successful merge and before the proposed commit log message to execute the commit. Exiting this script with a non-zero status causes the git merge command to abort before the commit is created.
+The pre-merge-commit hook by default, if enabled, triggers the pre-commit hook if the latter is enabled.
+
+This hook is invoked with the GIT_EDITOR=: environment variable if the command will not invoke the editor to change the commit message.
 
 
 - prepare-commit-msg
 
+This hook is called by git-commiе immediately after the default log message is prepared and before the editor is started.
+
+From one to three parameters are taken. The first is the name of the file containing the commit log message. The second is the source of the commit message, which can be: message (if option -m or -F is used); template (if option -t is used or the commit.template configuration option is used); merge (if the commit is a merge or a .git/MERGE_MSG file exists); squash (if a .git/SQUASH_MSG file exists); or commit followed by the name of the commit object (if option -c, -C or --amend is used).
 
 - commit-msg
 - post-commit
