@@ -86,28 +86,28 @@ This hook is called with the git-am command. It takes no parameters and is calle
 - post-applypatch
 
 This hook is called with the git-am command. It does not take any parameters and is called after the patch and commit have been applied.
-This hook is mainly for notification and cannot affect the result of git-am.
+This hook is mainly for notification and cannot affect the result of *git am*.
 
 - pre-commit
 
 This is performed before a commit is created.
 
-1. The user writes git commit -v in the terminal;
+1. The user writes *git commit -v* in the terminal;
 2. git tries to do a pre-commit hook locally on the developer's machine;
 3. If the hook fails, it will abort the commit operation;
 4. If the hook completes without errors, the commit operation continues and a text editor opens to enter the message.
 
 - pre-merge-commit
 
-This hook is called by git-merge and can be accessed using the --no-verify option. It takes no parameters and is called after a successful merge and before the proposed commit log message to execute the commit. Exiting this script with a non-zero status causes the git merge command to abort before the commit is created.
+This hook is called by git-merge and can be accessed using the *--no-verify* option. It takes no parameters and is called after a successful merge and before the proposed commit log message to execute the commit. Exiting this script with a non-zero status causes the *git merge* command to abort before the commit is created.
 The pre-merge-commit hook by default, if enabled, triggers the pre-commit hook if the latter is enabled.
 
-This hook is invoked with the GIT_EDITOR=: environment variable if the command will not invoke the editor to change the commit message.
+This hook is invoked with the *GIT_EDITOR=*: environment variable if the command will not invoke the editor to change the commit message.
 
 
 - prepare-commit-msg
 
-This hook is called by git-commiе immediately after the default log message is prepared and before the editor is started.
+This hook is called by *git-commit* immediately after the default log message is prepared and before the editor is started.
 
 - commit-msg
 
@@ -115,11 +115,11 @@ The commit-msg hook takes one parameter - the path to the temporary file contain
 
 - post-commit
 
-The post-commit hook runs after a commit has been created. It takes no parameters, but you can easily get information about the last commit by running git log -1 HEAD. Typically, this script is used for notifications or something similar.
+The *post-commit* hook runs after a commit has been created. It takes no parameters, but you can easily get information about the last commit by running git log -1 HEAD. Typically, this script is used for notifications or something similar.
 
 - pre-rebase
 
-The pre-rebase hook runs when you try to rebase and can stop the process by returning a non-zero code. It can be used to disallow rebasing commits that have already been sent. 
+The *pre-rebase* hook runs when you try to rebase and can stop the process by returning a non-zero code. It can be used to disallow rebasing commits that have already been sent. 
 
 - post-checkout
 
@@ -131,30 +131,30 @@ This hook can be used to retrieve data in your working directory that Git can't 
 
 - pre-push
 
-This hook is used after updating the deleted links, but before sending the data directly. It takes the name and path of the remote repository as parameters, and the list of changes to send via stdin. It can be used to validate a set of changes before actually sending them.
+This hook is used after updating the deleted links, but before sending the data directly. It takes the name and path of the remote repository as parameters, and the list of changes to send via *stdin*. It can be used to validate a set of changes before actually sending them.
 
 - pre-receive
 
-This hook is started first when you start receiving data from the client. It gets a list of changes sent to stdin and if it ends with a non-zero code, none of them will be accepted. This hook can be used to make sure that all changes can be applied by fast-forwarding, and also to check access rights.
+This hook is started first when you start receiving data from the client. It gets a list of changes sent to *stdin* and if it ends with a non-zero code, none of them will be accepted. This hook can be used to make sure that all changes can be applied by fast-forwarding, and also to check access rights.
 
 - update
 
-The update hook is very similar to pre-receive, except that it is executed for each branch that the sender tries to update.
+The update hook is very similar to *pre-receive*, except that it is executed for each branch that the sender tries to update.
 
 - proc-receive
 
-The post-receive hook is called after the entire process and can be used to update other services or notify users.
+This hook is called by git-receive-pack. If the server has set the *receive.procReceiveRefs* multi-valued configuration variable, and the commands sent to receive-pack have matching reference names, those commands will be executed by this hook, not by the internal *execute_commands()* function.
 
 - post-receive
 
-This hook is called by git-receive-pack when it responds to git push and updates the links in its repository. It is executed once on the remote repository after all the links have been updated. It is superior to the post-update hook in that it gets the old and new values of all references in addition to their names.
+This hook is called by git-receive-pack when it responds to *git push* and updates the links in its repository. It is executed once on the remote repository after all the links have been updated. It is superior to the post-update hook in that it gets the old and new values of all references in addition to their names.
 
 - post-update
 
-This hook is called by git-receive-pack when it responds to git push and updates the links in its repository. It is executed on the remote repository once after all the links have been updated.
+This hook is called by git-receive-pack when it responds to *git push* and updates the links in its repository. It is executed on the remote repository once after all the links have been updated.
 It takes a variable number of parameters, each of which is the name of a link that has been updated.
 
-This hook is primarily for notification and cannot affect the result of git receive-pack.
+This hook is primarily for notification and cannot affect the result of *git receive-pack*.
 
 - reference-transaction
 
@@ -162,7 +162,7 @@ This hook is called by any Git command that updates references. It runs every ti
 
 - push-to-checkout
 
-This hook is called by git-receive-pack when it responds to git push and updates the links in its repository, and when push tries to update a branch that is currently checked and the receive.denyCurrentBranch configuration variable is set to updateInstead.
+This hook is called by git-receive-pack when it responds to *git push* and updates the links in its repository, and when push tries to update a branch that is currently checked and the *receive.denyCurrentBranch* configuration variable is set to *updateInstead*.
 
 - pre-auto-gc
 - post-rewrite
