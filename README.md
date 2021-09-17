@@ -14,7 +14,7 @@ https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 - Setting up the hooks **Dominik**
 - Client-side vs Server-side hooks **Kuba**
 - Sharing hooks with others **Dominik**
-- Usage (describe the most interesting hooks in samples, there are also other hooks not included, see https://git-scm.com/docs/githooks)
+- Usage of hooks **Nelli**
 ----------------------------------------------------------
 # Git Hooks
 Group project for Version control with Git (JEM224)
@@ -193,7 +193,15 @@ This hook is called by *git-p4 submit*.
 The *p4-prepare-changelist* hook is invoked as soon as the default modification list message has been prepared and before the editor is started. 
 
 - p4-post-changelist
+
+This hook is called by *git-p4 submit*.
+
+The *p4-post-changelist* hook is called after submit has successfully completed in P4. 
+
 - p4-pre-submit
+
+This hook is called with the *git-p4 submit* command. It does not take any parameters or anything from the standard input. 
+
 - post-index-change
 
-
+This hook is called when an index is written to read-cache.c do_write_locked_index.
