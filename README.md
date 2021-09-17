@@ -165,11 +165,33 @@ This hook is called by any Git command that updates references. It runs every ti
 This hook is called by git-receive-pack when it responds to *git push* and updates the links in its repository, and when push tries to update a branch that is currently checked and the *receive.denyCurrentBranch* configuration variable is set to *updateInstead*.
 
 - pre-auto-gc
+
+This hook is called with the *git gc —auto* command. It takes no parameters, and exiting this script with a non-zero status causes *git gc —auto* to terminate.
+
 - post-rewrite
+
+This hook is called by commands that rewrite commits.
+
 - sendemail-validate
+
+This hook is called with the git-send-email command. It takes a single parameter - the name of the file containing the mail you want to send. Exiting with a non-zero status causes *git send-email* to terminate before sending any mail.
+
 - fsmonitor-watchman
+
+This hook is called when the *core.fsmonitor* configuration parameter is *.git/hooks/fsmonitor-watchman* or *.git/hooks/fsmonitor-watchmanv2*, depending on the version of the hook used.
+
 - p4-changelist
+
+This hook is called by *git-p4 submit*.
+
+The *p4-changelist* hook is invoked after a modification list message has been edited by the user.
+
 - p4-prepare-changelist
+
+This hook is called by *git-p4 submit*.
+
+The *p4-prepare-changelist* hook is invoked as soon as the default modification list message has been prepared and before the editor is started. 
+
 - p4-post-changelist
 - p4-pre-submit
 - post-index-change
