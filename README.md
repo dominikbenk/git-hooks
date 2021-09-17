@@ -134,12 +134,36 @@ This hook can be used to retrieve data in your working directory that Git can't 
 This hook is used after updating the deleted links, but before sending the data directly. It takes the name and path of the remote repository as parameters, and the list of changes to send via stdin. It can be used to validate a set of changes before actually sending them.
 
 - pre-receive
+
+This hook is started first when you start receiving data from the client. It gets a list of changes sent to stdin and if it ends with a non-zero code, none of them will be accepted. This hook can be used to make sure that all changes can be applied by fast-forwarding, and also to check access rights.
+
 - update
+
+The update hook is very similar to pre-receive, except that it is executed for each branch that the sender tries to update.
+
 - proc-receive
+
+The post-receive hook is called after the entire process and can be used to update other services or notify users.
+
 - post-receive
+
+This hook is called by git-receive-pack when it responds to git push and updates the links in its repository. It is executed once on the remote repository after all the links have been updated. It is superior to the post-update hook in that it gets the old and new values of all references in addition to their names.
+
 - post-update
+
+This hook is called by git-receive-pack when it responds to git push and updates the links in its repository. It is executed on the remote repository once after all the links have been updated.
+It takes a variable number of parameters, each of which is the name of a link that has been updated.
+
+This hook is primarily for notification and cannot affect the result of git receive-pack.
+
 - reference-transaction
+
+This hook is called by any Git command that updates references. It runs every time a reference transaction is prepared, committed, or cancelled, so it can be called several times.
+
 - push-to-checkout
+
+This hook is called by git-receive-pack when it responds to git push and updates the links in its repository, and when push tries to update a branch that is currently checked and the receive.denyCurrentBranch configuration variable is set to updateInstead.
+
 - pre-auto-gc
 - post-rewrite
 - sendemail-validate
