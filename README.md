@@ -105,14 +105,30 @@ This hook is invoked with the GIT_EDITOR=: environment variable if the command w
 
 This hook is called by git-commiе immediately after the default log message is prepared and before the editor is started.
 
-From one to three parameters are taken. The first is the name of the file containing the commit log message. The second is the source of the commit message, which can be: message (if option -m or -F is used); template (if option -t is used or the commit.template configuration option is used); merge (if the commit is a merge or a .git/MERGE_MSG file exists); squash (if a .git/SQUASH_MSG file exists); or commit followed by the name of the commit object (if option -c, -C or --amend is used).
-
 - commit-msg
+
+The commit-msg hook takes one parameter - the path to the temporary file containing the commit message, specified by the developer.
+
 - post-commit
+
+The post-commit hook runs after a commit has been created. It takes no parameters, but you can easily get information about the last commit by running git log -1 HEAD. Typically, this script is used for notifications or something similar.
+
 - pre-rebase
+
+The pre-rebase hook runs when you try to rebase and can stop the process by returning a non-zero code. It can be used to disallow rebasing commits that have already been sent. 
+
 - post-checkout
+
+This hook can be used to customize the working directory according to the requirements of the project. For example, moving large binary files that should not be tracked to the working directory, autogenerating documentation, etc.
+
 - post-merge
+
+This hook can be used to retrieve data in your working directory that Git can't track, such as permissions. This hook can also check for files external to Git that you might want to copy when you make changes.
+
 - pre-push
+
+This hook is used after updating the deleted links, but before sending the data directly. It takes the name and path of the remote repository as parameters, and the list of changes to send via stdin. It can be used to validate a set of changes before actually sending them.
+
 - pre-receive
 - update
 - proc-receive
