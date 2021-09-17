@@ -60,129 +60,129 @@ And now, you're ready to push!
 
 - applypatch-msg
 
-This hook is called with the git-am command. It takes a single parameter - the name of the file in which the log message of the proposed commit is stored. 
+   This hook is called with the git-am command. It takes a single parameter - the name of the file in which the log message of the proposed commit is stored. 
 
 - pre-applypatch
 
-This hook is called with the git-am command. It takes no parameters and is called after applying the patch, but before committing.
+   This hook is called with the git-am command. It takes no parameters and is called after applying the patch, but before committing.
 
 - post-applypatch
 
-This hook is called with the git-am command. It does not take any parameters and is called after the patch and commit have been applied.
-This hook is mainly for notification and cannot affect the result of *git am*.
+   This hook is called with the git-am command. It does not take any parameters and is called after the patch and commit have been applied.
+   This hook is mainly for notification and cannot affect the result of *git am*.
 
 - pre-commit
 
-This is performed before a commit is created.
+   This is performed before a commit is created.
 
-1. The user writes *git commit -v* in the terminal;
-2. git tries to do a pre-commit hook locally on the developer's machine;
-3. If the hook fails, it will abort the commit operation;
-4. If the hook completes without errors, the commit operation continues and a text editor opens to enter the message.
+   1. The user writes *git commit -v* in the terminal;
+   2. git tries to do a pre-commit hook locally on the developer's machine;
+   3. If the hook fails, it will abort the commit operation;
+   4. If the hook completes without errors, the commit operation continues and a text editor opens to enter the message.
 
 - pre-merge-commit
 
-This hook is called by git-merge and can be accessed using the *--no-verify* option. It takes no parameters and is called after a successful merge and before the proposed commit log message to execute the commit. Exiting this script with a non-zero status causes the *git merge* command to abort before the commit is created.
-The pre-merge-commit hook by default, if enabled, triggers the pre-commit hook if the latter is enabled.
+   This hook is called by git-merge and can be accessed using the *--no-verify* option. It takes no parameters and is called after a successful merge and before the proposed commit log message to execute the commit. Exiting this script with a non-zero status causes the *git merge* command to abort before the commit is created.
+   The pre-merge-commit hook by default, if enabled, triggers the pre-commit hook if the latter is enabled.
 
-This hook is invoked with the *GIT_EDITOR=*: environment variable if the command will not invoke the editor to change the commit message.
+   This hook is invoked with the *GIT_EDITOR=*: environment variable if the command will not invoke the editor to change the commit message.
 
 - prepare-commit-msg
 
-This hook is called by *git-commit* immediately after the default log message is prepared and before the editor is started.
+   This hook is called by *git-commit* immediately after the default log message is prepared and before the editor is started.
 
 - commit-msg
 
-The commit-msg hook takes one parameter - the path to the temporary file containing the commit message, specified by the developer.
+   The commit-msg hook takes one parameter - the path to the temporary file containing the commit message, specified by the developer.
 
 - post-commit
 
-The *post-commit* hook runs after a commit has been created. It takes no parameters, but you can easily get information about the last commit by running git log -1 HEAD. Typically, this script is used for notifications or something similar.
+   The *post-commit* hook runs after a commit has been created. It takes no parameters, but you can easily get information about the last commit by running git log -1 HEAD. Typically, this script is used for notifications or something similar.
 
 - pre-rebase
 
-The *pre-rebase* hook runs when you try to rebase and can stop the process by returning a non-zero code. It can be used to disallow rebasing commits that have already been sent. 
+   The *pre-rebase* hook runs when you try to rebase and can stop the process by returning a non-zero code. It can be used to disallow rebasing commits that have already been sent. 
 
 - post-checkout
 
-This hook can be used to customize the working directory according to the requirements of the project. For example, moving large binary files that should not be tracked to the working directory, autogenerating documentation, etc.
+   This hook can be used to customize the working directory according to the requirements of the project. For example, moving large binary files that should not be tracked to the working directory, autogenerating documentation, etc.
 
 - post-merge
 
-This hook can be used to retrieve data in your working directory that Git can't track, such as permissions. This hook can also check for files external to Git that you might want to copy when you make changes.
+   This hook can be used to retrieve data in your working directory that Git can't track, such as permissions. This hook can also check for files external to Git that you might want to copy when you make changes.
 
 - pre-push
 
-This hook is used after updating the deleted links, but before sending the data directly. It takes the name and path of the remote repository as parameters, and the list of changes to send via *stdin*. It can be used to validate a set of changes before actually sending them.
+   This hook is used after updating the deleted links, but before sending the data directly. It takes the name and path of the remote repository as parameters, and the list of changes to send via *stdin*. It can be used to validate a set of changes before actually sending them.
 
 - pre-receive
 
-This hook is started first when you start receiving data from the client. It gets a list of changes sent to *stdin* and if it ends with a non-zero code, none of them will be accepted. This hook can be used to make sure that all changes can be applied by fast-forwarding, and also to check access rights.
+   This hook is started first when you start receiving data from the client. It gets a list of changes sent to *stdin* and if it ends with a non-zero code, none of them will be accepted. This hook can be used to make sure that all changes can be applied by fast-forwarding, and also to check access rights.
 
 - update
 
-The update hook is very similar to *pre-receive*, except that it is executed for each branch that the sender tries to update.
+   The update hook is very similar to *pre-receive*, except that it is executed for each branch that the sender tries to update.
 
 - proc-receive
 
-This hook is called by git-receive-pack. If the server has set the *receive.procReceiveRefs* multi-valued configuration variable, and the commands sent to receive-pack have matching reference names, those commands will be executed by this hook, not by the internal *execute_commands()* function.
+   This hook is called by git-receive-pack. If the server has set the *receive.procReceiveRefs* multi-valued configuration variable, and the commands sent to receive-pack have matching reference names, those commands will be executed by this hook, not by the internal *execute_commands()* function.
 
 - post-receive
 
-This hook is called by git-receive-pack when it responds to *git push* and updates the links in its repository. It is executed once on the remote repository after all the links have been updated. It is superior to the post-update hook in that it gets the old and new values of all references in addition to their names.
+   This hook is called by git-receive-pack when it responds to *git push* and updates the links in its repository. It is executed once on the remote repository after all the links have been updated. It is superior to the post-update hook in that it gets the old and new values of all references in addition to their names.
 
 - post-update
 
-This hook is called by git-receive-pack when it responds to *git push* and updates the links in its repository. It is executed on the remote repository once after all the links have been updated.
-It takes a variable number of parameters, each of which is the name of a link that has been updated.
+   This hook is called by git-receive-pack when it responds to *git push* and updates the links in its repository. It is executed on the remote repository once after all the links have been updated.
+   It takes a variable number of parameters, each of which is the name of a link that has been updated.
 
-This hook is primarily for notification and cannot affect the result of *git receive-pack*.
+   This hook is primarily for notification and cannot affect the result of *git receive-pack*.
 
 - reference-transaction
 
-This hook is called by any Git command that updates references. It runs every time a reference transaction is prepared, committed, or cancelled, so it can be called several times.
+   This hook is called by any Git command that updates references. It runs every time a reference transaction is prepared, committed, or cancelled, so it can be called several times.
 
 - push-to-checkout
 
-This hook is called by git-receive-pack when it responds to *git push* and updates the links in its repository, and when push tries to update a branch that is currently checked and the *receive.denyCurrentBranch* configuration variable is set to *updateInstead*.
+   This hook is called by git-receive-pack when it responds to *git push* and updates the links in its repository, and when push tries to update a branch that is currently checked and the *receive.denyCurrentBranch* configuration variable is set to *updateInstead*.
 
 - pre-auto-gc
 
-This hook is called with the *git gc —auto* command. It takes no parameters, and exiting this script with a non-zero status causes *git gc —auto* to terminate.
+   This hook is called with the *git gc —auto* command. It takes no parameters, and exiting this script with a non-zero status causes *git gc —auto* to terminate.
 
 - post-rewrite
 
-This hook is called by commands that rewrite commits.
+   This hook is called by commands that rewrite commits.
 
 - sendemail-validate
 
-This hook is called with the git-send-email command. It takes a single parameter - the name of the file containing the mail you want to send. Exiting with a non-zero status causes *git send-email* to terminate before sending any mail.
+   This hook is called with the git-send-email command. It takes a single parameter - the name of the file containing the mail you want to send. Exiting with a non-zero status causes *git send-email* to terminate before sending any mail.
 
 - fsmonitor-watchman
 
-This hook is called when the *core.fsmonitor* configuration parameter is *.git/hooks/fsmonitor-watchman* or *.git/hooks/fsmonitor-watchmanv2*, depending on the version of the hook used.
+   This hook is called when the *core.fsmonitor* configuration parameter is *.git/hooks/fsmonitor-watchman* or *.git/hooks/fsmonitor-watchmanv2*, depending on the version of the hook used.
 
 - p4-changelist
 
-This hook is called by *git-p4 submit*. The *p4-changelist* hook is invoked after a modification list message has been edited by the user.
+   This hook is called by *git-p4 submit*. The *p4-changelist* hook is invoked after a modification list message has been edited by the user.
 
 - p4-prepare-changelist
 
-This hook is called by *git-p4 submit*.
+   This hook is called by *git-p4 submit*.
 
-The *p4-prepare-changelist* hook is invoked as soon as the default modification list message has been prepared and before the editor is started. 
+   The *p4-prepare-changelist* hook is invoked as soon as the default modification list message has been prepared and before the editor is started. 
 
 - p4-post-changelist
 
-This hook is called by *git-p4 submit*. The *p4-post-changelist* hook is called after submit has successfully completed in P4. 
+   This hook is called by *git-p4 submit*. The *p4-post-changelist* hook is called after submit has successfully completed in P4. 
 
 - p4-pre-submit
 
-This hook is called with the *git-p4 submit* command. It does not take any parameters or anything from the standard input. 
+   This hook is called with the *git-p4 submit* command. It does not take any parameters or anything from the standard input. 
 
 - post-index-change
 
-This hook is called when an index is written to read-cache.c do_write_locked_index.
+   This hook is called when an index is written to read-cache.c do_write_locked_index.
 
 ## Main sources
 [Github tutorial](https://github.com/aitemr/awesome-git-hooks)
