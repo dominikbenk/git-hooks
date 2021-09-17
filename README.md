@@ -22,15 +22,17 @@ Group project for Version control with Git (JEM224)
 ### Authors
 Nelli Kalashyan, Jakub Černý, Dominik Benk
 
-## What are Git Hooks and why is it good to use them?
+## What are Git Hooks?
 Git hooks are a handy tool that can boost our efficiency and make our collaboration with other colleagues a bit easier. They are basically executable scripts that are triggered by classical git commands (to which we assign them). They can be found in *.git/hooks* folder in every repository and they can affect the Git commands arbitrarily. The scripts themselves can be shell, Python or anything else, which is very practical since everyone can use his or her favourite programming language.
 
 As mentioned above, the main goal is to make things easier and therefore the hooks can be used e.g. for custom specifications of a team of developers (or possibly a single developer handling a lot of work) to secure proper workflow, format of commit messages and similar things. More information about how to set up the hooks, how to share them with a team of collaborators or what are their specific applications can be found in next sections.
 
-## Client-side vs Server-side Hooks
-The first group of hooks, as the name suggests, is intended for someone who contributes to a repository and wants to do it in a more efficient way. The are for instance hooks that affect the commiting process- it is possible to inspect content of the snapshot (to run unit tests, to check for mistakes in code, etc.), to check whether the commit message is written according to given requirements or to simply show certain notifications. Furthemore, the client-side hooks can be used e.g. to notify collaborators that a commit has been done, to validate accomplished changes before a push or to affect actions of Git's garbage collector
+## Types of Hooks
+* Client-side Hooks 
+	The first group of hooks, as the name suggests, is intended for someone who contributes to a repository and wants to do it in a more efficient way. The are for instance 	 hooks that affect the commiting process- it is possible to inspect content of the snapshot (to run unit tests, to check for mistakes in code, etc.), to check whether the 	   commit message is written according to given requirements or to simply show certain notifications. Furthemore, the client-side hooks can be used e.g. to notify 		collaborators that a commit has been done, to validate accomplished changes before a push or to affect actions of Git's garbage collector
 
-The server-side hooks are created by an administrator in order to enforce some rules for contributors. It is possible to interupt someone's push e.g. when it does not satisfy requirements or when it modifies content that is not allowed to change. At the same time, additional information about pushed content can be collected or notifications can be sent after a successfull push.
+* Server-side Hooks
+	The server-side hooks are created by an administrator in order to enforce some rules for contributors. It is possible to interupt someone's push e.g. when it does not 		satisfy requirements or when it modifies content that is not allowed to change. At the same time, additional information about pushed content can be collected or 		notifications can be sent after a successfull push.
 
 ## Sharing Git Hooks with a Team
 Since Git hooks are by default part of the .git folder, they are ignored and can't be added to staging index.
