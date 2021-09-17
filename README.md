@@ -1,21 +1,3 @@
-# Our notes
-### Main sources
-https://github.com/aitemr/awesome-git-hooks
-
-https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-
-[nice tutorial](https://www.atlassian.com/git/tutorials/git-hooks)
-
-## Distributing the work
-*feel free to add new subtopics / assign your name to them*
-
-
-- What are the git hooks and why it is good to use them?      **Kuba**
-- Setting up the hooks **Dominik**
-- Client-side vs Server-side hooks **Kuba**
-- Sharing hooks with others **Dominik**
-- Usage of hooks **Nelli**
-----------------------------------------------------------
 # Git Hooks
 Group project for Version control with Git (JEM224)
 
@@ -201,3 +183,10 @@ This hook is called with the *git-p4 submit* command. It does not take any param
 - post-index-change
 
 This hook is called when an index is written to read-cache.c do_write_locked_index.
+
+## Main sources
+[Github tutorial](https://github.com/aitemr/awesome-git-hooks)
+
+[Atlassian tutorial](https://www.atlassian.com/git/tutorials/git-hooks)
+
+[Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
