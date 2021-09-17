@@ -75,6 +75,7 @@ And now, you're ready to push!
 
 
 ## Application
+
 - applypatch-msg
 
 This hook is called with the git-am command. It takes a single parameter - the name of the file in which the log message of the proposed commit is stored. 
@@ -103,7 +104,6 @@ This hook is called by git-merge and can be accessed using the *--no-verify* opt
 The pre-merge-commit hook by default, if enabled, triggers the pre-commit hook if the latter is enabled.
 
 This hook is invoked with the *GIT_EDITOR=*: environment variable if the command will not invoke the editor to change the commit message.
-
 
 - prepare-commit-msg
 
@@ -182,9 +182,7 @@ This hook is called when the *core.fsmonitor* configuration parameter is *.git/h
 
 - p4-changelist
 
-This hook is called by *git-p4 submit*.
-
-The *p4-changelist* hook is invoked after a modification list message has been edited by the user.
+This hook is called by *git-p4 submit*. The *p4-changelist* hook is invoked after a modification list message has been edited by the user.
 
 - p4-prepare-changelist
 
@@ -194,9 +192,7 @@ The *p4-prepare-changelist* hook is invoked as soon as the default modification 
 
 - p4-post-changelist
 
-This hook is called by *git-p4 submit*.
-
-The *p4-post-changelist* hook is called after submit has successfully completed in P4. 
+This hook is called by *git-p4 submit*. The *p4-post-changelist* hook is called after submit has successfully completed in P4. 
 
 - p4-pre-submit
 
