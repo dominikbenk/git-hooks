@@ -73,20 +73,26 @@ And now, you're ready to push!
 ## Application
 - applypatch-msg
 
-This hook is called with the git-am[1] command. It takes a single parameter - the name of the file in which the log message of the proposed commit is stored. 
+This hook is called with the git-am command. It takes a single parameter - the name of the file in which the log message of the proposed commit is stored. 
 
 - pre-applypatch
 
-This hook is called with the git-am[1] command. It takes no parameters and is called after applying the patch, but before committing.
+This hook is called with the git-am command. It takes no parameters and is called after applying the patch, but before committing.
 
 - post-applypatch
 
-This hook is called with the git-am[1] command. It does not take any parameters and is called after the patch and commit have been applied.
+This hook is called with the git-am command. It does not take any parameters and is called after the patch and commit have been applied.
 This hook is mainly for notification and cannot affect the result of git-am.
 
 - pre-commit
+
+
 - pre-merge-commit
+
+
 - prepare-commit-msg
+
+
 - commit-msg
 - post-commit
 - pre-rebase
